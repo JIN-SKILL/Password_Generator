@@ -1,18 +1,22 @@
 // require related modules used in the project
 const express = require('express')
+const exphbs = require('express-handlebars')
 const app = express()
 const port = 3000
-// const exphbs = require('express-handlebars')
 
+// setting template engine
+app.engine('handlebars', exphbs({ defaultLayout: 'main'}))
+app.set('view engine', 'handlebars')
 
-// route
+// setting static files
+app.use(express.static('public'))
+
+// setting routes
 app.get('/', (req, res) => {
-  res.send(`This will be a random password generator`)
-  // res.render('index')
+  res.render('index')
 })
 
-
-// listen
+// starts the express server and listening for connections
 app.listen(port, () => {
-  console.log(`The server is running on http://localhost:${port}`)
+  console.log(`The server is listening on http://localhost:${port}`)
 })
