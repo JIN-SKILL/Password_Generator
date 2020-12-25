@@ -22,8 +22,9 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', (req, res) => {
-  console.log(`password is: ${generatePassword(req.body)}`)
-  res.render('index')
+  const options = req.body
+  const passwords = generatePassword(options)
+  res.render('index', { password: passwords , options: options })
 })
 
 // starts the express server and listening for connections

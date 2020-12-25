@@ -10,65 +10,83 @@
           <form method="POST" action="/">
             <div class="row">
               <label for="length" class="col-md-4 col-form-label">
-                Password Length
+                產生組數 (1-100)
               </label>
               <div class="col-md-8">
-                <input type="number" name="length" class="form-control" id="length" min="4" max="16">
-                <small class="text-muted form-text">Length is available between 4 ~ 16</small>
+                <input type="number" name="quantity" class="form-control" id="quantity" min="1" max="100" value="{{ options.quantity }}">
               </div>
             </div>
 
-            <div class="row mb-2 align-items-center">
-              <label for="lowercase" class="col-md-4 col-form-label">Include Lowercase Characters</label>
+            <div class="row mt-3">
+              <label for="length" class="col-md-4 col-form-label">
+                密碼長度 (4-16)
+              </label>
               <div class="col-md-8">
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="lowercase" name="lowercase">
-                  <label class="custom-control-label" for="lowercase">(e.g. abcdefg)</label>
-                </div>
+                <input type="number" name="length" class="form-control" id="length" min="4" max="16" value="{{ options.length }}">
               </div>
             </div>
 
-            <div class="row mb-2 align-items-center">
-              <label for="uppercase" class="col-md-4 col-form-label">Include Uppercase Characters</label>
+            <div class="row mt-3 align-items-center">
+              <label for="uppercase" class="col-md-4 col-form-label">大寫英文字母</label>
               <div class="col-md-8">
                 <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="uppercase" name="uppercase">
+                  <input type="checkbox" class="custom-control-input" id="uppercase" name="uppercase" {{#if options.uppercase }} checked {{/if}}>
                   <label class="custom-control-label" for="uppercase">(e.g. ABCDEFG)</label>
                 </div>
               </div>
             </div>
 
-            <div class="row mb-2 align-items-center">
-              <label for="numbers" class="col-md-4 col-form-label">Include Numbers</label>
+            <div class="row mt-3 align-items-center">
+              <label for="lowercase" class="col-md-4 col-form-label">小寫英文字母</label>
               <div class="col-md-8">
                 <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="numbers" name="numbers">
+                  <input type="checkbox" class="custom-control-input" id="lowercase" name="lowercase" {{#if options.lowercase }} checked {{/if}}>
+                  <label class="custom-control-label" for="lowercase">(e.g. abcdefg)</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mt-3 align-items-center">
+              <label for="numbers" class="col-md-4 col-form-label">數字</label>
+              <div class="col-md-8">
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="numbers" name="numbers" {{#if options.numbers }} checked {{/if}}>
                   <label class="custom-control-label" for="numbers">(e.g. 123456)</label>
                 </div>
               </div>
             </div>
 
-            <div class="row mb-2 align-items-center">
-              <label for="symbols" class="col-md-4 col-form-label">Include Symbols</label>
+            <div class="row mt-3 align-items-center">
+              <label for="symbols" class="col-md-4 col-form-label">符號</label>
               <div class="col-md-8">
                 <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="symbols" name="symbols">
+                  <input type="checkbox" class="custom-control-input" id="symbols" name="symbols" {{#if options.symbols }} checked {{/if}}>
                   <label class="custom-control-label" for="symbols">(e.g. @#$%)</label>
                 </div>
               </div>
             </div>
 
-            <div class="row">
+            <div class="row mt-3">
               <label for="exclude-characters" class="col-md-4 col-form-label">
-                Exclude Characters
+                指定不包含字元
               </label>
               <div class="col-md-8">
-                <input type="text" name="excludeCharacters" class="form-control" id="exclude-characters">
-                <small class="text-muted form-text">These characters will not appear in the password</small>
+                <input type="text" name="excludeCharacters" class="form-control" id="exclude-characters" value="{{ options.excludeCharacters }}">
+                <small class="text-muted form-text">(直接輸入字元不需逗號分隔)</small>
               </div>
             </div>
 
-            <button class="btn btn-success" type="submit">Generate Password</button>
+            {{!-- Show passwords here --}}
+            <div class="row mt-3">
+              <div class="col-md-12"><button class="btn btn-success" type="submit">產生密碼</button></div>
+              {{#if password }}
+                {{#each password }}
+                  <div class="col-md-3 my-3"><kbd class="p-2"><kbd>{{ this }}</kbd></kbd></div>
+                {{/each}}
+              {{/if}}
+            </div>
+
+
           </form>
         </div>
 
