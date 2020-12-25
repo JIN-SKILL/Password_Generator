@@ -1,7 +1,7 @@
 # 密碼產生器
 使用 Express.js 建置的密碼產生器，能指定方式隨機生成密碼。
 
-![Minion](https://raw.githubusercontent.com/JIN-SKILL/Example_Image/main/generator_password.png)
+![Password_Generator](https://raw.githubusercontent.com/JIN-SKILL/Example_Image/main/Password_Generator.png)
 
 ## 網站功能
 + 生成 1-100 組密碼
@@ -37,3 +37,4 @@
 4. 終端機 (Terminal) 顯示以下內容，即可在瀏覽器輸入 [http://localhost:3000](http://localhost:3000) 使用網站
 	```
     The server is listening on http://localhost:3000
+    ```
