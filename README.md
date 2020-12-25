@@ -1,6 +1,8 @@
 # 密碼產生器
 使用 Express.js 建置的密碼產生器，能指定方式隨機生成密碼。
 
+![Minion](https://raw.githubusercontent.com/JIN-SKILL/Example_Image/main/generator_password.png)
+
 ## 網站功能
 + 指定生成大小寫數字密碼
 + 過濾不需要的字元
