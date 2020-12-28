@@ -1,7 +1,7 @@
 # 密碼產生器
 使用 Express.js 建置的密碼產生器，能指定方式隨機生成密碼。
 
-![Password_Generator](https://raw.githubusercontent.com/JIN-SKILL/Example_Image/main/Password_Generator.png)
+![Password_Generator](https://github.com/JIN-SKILL/Example_Image/blob/main/Password_Generator.gif)
 
 ## 網站功能
 + 生成 1-100 組密碼
